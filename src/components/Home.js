@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import ImageSlider from './ImageSlider'
+import Viewer from './Viewer';
 
 const Home = () => {
-    // let sliderImages = ["/images/slider-badag.jpg", "/images/slider-badging.jpg", "/images/slider-badag.jpg"];
-    let sliderImages = [];
+    let sliderImages = ["/images/slider-badag.jpg", "/images/slider-badging.jpg", "/images/slider-badag.jpg"];
+    let viewersImages = ["/images/viewers-disney.png", "/images/viewers-pixar.png", "/images/viewers-marvel.png", "/images/viewers-starwars.png", "/images/viewers-national.png"];
     return (
         <Container>
             <ImageSlider sliderImages={sliderImages} />
+            <Viewer viewersImages={viewersImages} />
         </Container>
     )
 }
@@ -24,7 +26,7 @@ const Container = styled.main`
     overflow: hidden;
 
     &:before {
-        background: url("/images/home-background.png") no-repeat fixed center;
+        background: url("/images/home-background.png") center center / cover no-repeat fixed;
         content: "";
         position: absolute;
         top: 0;

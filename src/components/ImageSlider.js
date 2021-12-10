@@ -1,6 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
+
+// Installation
+// npm : npm install react-slick --save
+// Also install slick-carousel for css and font
+// npm install slick-carousel
+
 import Slider from 'react-slick'
+
+// Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -17,7 +25,7 @@ const ImageSlider = (props) => {
     return (
         <Carousel {...settings}>
             {sliderImages.map((element) => {
-                return element ? <Wrap><img src={element} alt="Slider Image" /></Wrap> : <h2>Images not found</h2>
+                return element ? <Wrap><img src={element} alt="Slider" /></Wrap> : <h2>Images not found</h2>
             })}
         </Carousel>
     )

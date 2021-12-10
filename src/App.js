@@ -3,13 +3,27 @@ import './App.css';
 import Header from './components/Header';
 // import styled from 'styled-components';
 import Home from './components/Home';
+import Detail from './components/Detail';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
     return (
-        <div className="App">
+        <Router>
             <Header />
-            <Home />
-        </div>
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route exact path="/detail">
+                    <Detail />
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 

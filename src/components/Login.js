@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth'
 import { auth, provider } from '../firebase'
 
 const Login = () => {
-    let history = useHistory();
+    // let history = useHistory();
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
-                history.push("/");
+                <Link to='/' />
             }
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps

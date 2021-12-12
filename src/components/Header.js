@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import { auth, provider } from '../firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { signInWithPopup } from 'firebase/auth'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const Header = (props) => {
     const { user, setUser } = props;
-    let router = useHistory();
+    // let router = useHistory();
     useEffect(() => {
         return onAuthStateChanged(auth, user => {
             if (user) {
@@ -18,7 +18,8 @@ const Header = (props) => {
             }
             else {
                 setUser(null);
-                router.push("/login");
+                // router.push("/login");
+                <Link to='/login' />
             }
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,8 +27,8 @@ const Header = (props) => {
     return (
         <Nav>
             <Link to='/'>
-                <Logo src="/images/logo.svg" alt="Disney+ logo" />
-            </Link>
+                < Logo src="/images/logo.svg" alt="Disney+ logo" />
+            </Link >
             {
                 !user ?
                     <LoginContainer>
@@ -64,7 +65,7 @@ const Header = (props) => {
                         <UserImg src={user && user.photoUrl} alt="Naman" onClick={() => signOut(auth)} />
                     </>
             }
-        </Nav>
+        </Nav >
     )
 }
 

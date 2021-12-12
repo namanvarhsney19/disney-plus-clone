@@ -25,7 +25,7 @@ const ImageSlider = (props) => {
     return (
         <Carousel {...settings}>
             {sliderImages.map((element) => {
-                return element ? <Wrap><img src={element} alt="Slider" /></Wrap> : <h2>Images not found</h2>
+                return <Wrap><img src={element} alt="Slider" /></Wrap>
             })}
         </Carousel>
     )

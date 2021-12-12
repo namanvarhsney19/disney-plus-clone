@@ -1,37 +1,69 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { auth, provider } from '../firebase'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { signInWithPopup } from 'firebase/auth'
+import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
+    const { user, setUser } = props;
+    let router = useHistory();
+    useEffect(() => {
+        return onAuthStateChanged(auth, user => {
+            if (user) {
+                setUser({
+                    photoUrl: user.photoURL
+                })
+            }
+            else {
+                setUser(null);
+                router.push("/login");
+            }
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <Nav>
-            <Logo src="/images/logo.svg" alt="Disney+ logo" />
-            <NavMenu>
-                <a>
-                    <img src="/images/home-icon.svg" />
-                    <span>HOME</span>
-                </a>
-                <a>
-                    <img src="/images/search-icon.svg" />
-                    <span>SEARCH</span>
-                </a>
-                <a>
-                    <img src="/images/watchlist-icon.svg" />
-                    <span>WATCHLIST</span>
-                </a>
-                <a>
-                    <img src="/images/original-icon.svg" />
-                    <span>ORIGINALS</span>
-                </a>
-                <a>
-                    <img src="/images/movie-icon.svg" />
-                    <span>MOVIES</span>
-                </a>
-                <a>
-                    <img src="/images/series-icon.svg" />
-                    <span>SERIES</span>
-                </a>
-            </NavMenu>
-            <UserImg src="" alt="User Image" />
+            <Link to='/'>
+                <Logo src="/images/logo.svg" alt="Disney+ logo" />
+            </Link>
+            {
+                !user ?
+                    <LoginContainer>
+                        <Login onClick={() => signInWithPopup(auth, provider)}>Login</Login>
+                    </LoginContainer> :
+                    <>
+                        <NavMenu>
+                            {/* Make these <a></a> tags to link */}
+                            <p>
+                                <img src="/images/home-icon.svg" alt='HOME' />
+                                <span>HOME</span>
+                            </p>
+                            <p>
+                                <img src="/images/search-icon.svg" alt='SEARCH' />
+                                <span>SEARCH</span>
+                            </p>
+                            <p>
+                                <img src="/images/watchlist-icon.svg" alt='WATCHLIST' />
+                                <span>WATCHLIST</span>
+                            </p>
+                            <p>
+                                <img src="/images/original-icon.svg" alt='ORIGINALS' />
+                                <span>ORIGINALS</span>
+                            </p>
+                            <p>
+                                <img src="/images/movie-icon.svg" alt='MOVIES' />
+                                <span>MOVIES</span>
+                            </p>
+                            <p>
+                                <img src="/images/series-icon.svg" alt='SERIES' />
+                                <span>SERIES</span>
+                            </p>
+                        </NavMenu>
+                        <UserImg src={user && user.photoUrl} alt="Naman" onClick={() => signOut(auth)} />
+                    </>
+            }
         </Nav>
     )
 }
@@ -50,11 +82,35 @@ const Nav = styled.nav`
 const Logo = styled.img`
     width : 80px;
 `
+
+const LoginContainer = styled.div`
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+`
+
+const Login = styled.div`
+    text-transform: uppercase;
+    border: 1px solid #f9f9f9;
+    padding: 8px 16px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+    
+    &:hover{
+        background-color: #f9f9f9;
+        color: #000;
+        border-color: transparent; 
+        font-weight: bold;
+    }
+`
 const NavMenu = styled.div`
     display : flex;
     flex:1;
 
-    a{
+    p{
         display : flex;
         align-items : center;
         padding : 0 12px;

@@ -3,17 +3,18 @@ import styled from 'styled-components'
 import ImageSlider from './ImageSlider'
 import Movies from './Movies';
 import Viewer from './Viewer';
+// import db from '../firebase';
 
 const Home = () => {
-    let sliderImages = ["/images/slider-badag.jpg", "/images/slider-badging.jpg", "/images/slider-scale.jpg", "/images/slider-badging.jpg", "/images/slider-badag.jpg", "/images/slider-scales.jpg"];
-    let viewersImages = ["/images/viewers-disney.png", "/images/viewers-pixar.png", "/images/viewers-marvel.png", "/images/viewers-starwars.png", "/images/viewers-national.png"];
-    let movieImages = ["/images/viewers-disney.png", "/images/viewers-pixar.png", "/images/viewers-marvel.png", "/images/viewers-starwars.png", "/images/viewers-national.png"];
+    let sliderImages = [
+        "/images/slider-badag.jpg", "/images/slider-badging.jpg", "/images/slider-scale.jpg", "/images/slider-scales.jpg"
+    ];
 
     return (
         <Container>
             <ImageSlider sliderImages={sliderImages} />
-            <Viewer viewersImages={viewersImages} />
-            <Movies movieImages={movieImages} />
+            <Viewer />
+            <Movies />
         </Container>
     )
 }

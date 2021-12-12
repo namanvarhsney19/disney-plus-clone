@@ -26,33 +26,33 @@ const Viewer = () => {
         <Container>
             {/* {viewersImages.map((element) => { */}
             <Wrap onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-                <img src={"/images/viewers-disney.png"} alt="Viewers" />
+                <img src={"https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/images/viewers-disney.png"} alt="Viewers" />
                 <video loop muted ref={vidRef1} >
-                    <source src={'/videos/1564674844-disney.mp4'} type="video/mp4" />
+                    <source src={'https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/videos/1564674844-disney.mp4'} type="video/mp4" />
                 </video>
             </Wrap>
             <Wrap onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-                <img src={"/images/viewers-pixar.png"} alt="Viewers" />
+                <img src={"https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/images/viewers-pixar.png"} alt="Viewers" />
                 <video loop muted ref={vidRef2} >
-                    <source src={'/videos/1564676714-pixar.mp4'} type="video/mp4" />
+                    <source src={'https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/videos/1564676714-pixar.mp4'} type="video/mp4" />
                 </video>
             </Wrap>
             <Wrap onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-                <img src={"/images/viewers-marvel.png"} alt="Viewers" />
+                <img src={"https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/images/viewers-marvel.png"} alt="Viewers" />
                 <video loop muted ref={vidRef3} >
-                    <source src={'/videos/1564676115-marvel.mp4'} type="video/mp4" />
+                    <source src={'https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/videos/1564676115-marvel.mp4'} type="video/mp4" />
                 </video>
             </Wrap>
             <Wrap onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-                <img src={"/images/viewers-starwars.png"} alt="Viewers" />
+                <img src={"https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/images/viewers-starwars.png"} alt="Viewers" />
                 <video loop muted ref={vidRef4} >
-                    <source src={'/videos/1608229455-star-wars.mp4'} type="video/mp4" />
+                    <source src={'https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/videos/1608229455-star-wars.mp4'} type="video/mp4" />
                 </video>
             </Wrap>
             <Wrap onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-                <img src={"/images/viewers-national.png"} alt="Viewers" />
+                <img src={"https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/images/viewers-national.png"} alt="Viewers" />
                 <video loop muted ref={vidRef5} >
-                    <source src={'/videos/1564676296-national-geographic.mp4'} type="video/mp4" />
+                    <source src={'https://github.com/namanvarhsney19/disney-plus-clone/tree/main/public/videos/1564676296-national-geographic.mp4'} type="video/mp4" />
                 </video>
             </Wrap>
         </Container>
